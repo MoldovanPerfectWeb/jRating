@@ -60,6 +60,7 @@
 
 			var average = parseFloat($(this).attr('data-average')), // get the average of all rates
 			idBox = parseInt($(this).attr('data-id')), // get the id of the box
+            extraParam = $(this).attr('data-extra'), // get the extra param
 			widthRatingContainer = starWidth*opts.length, // Width of the Container
 			widthColor = average/opts.rateMax*widthRatingContainer, // Width of the color Container
 
@@ -164,7 +165,8 @@
 						$.post(opts.phpPath,{
 								idBox : idBox,
 								rate : rate,
-								action : 'rating'
+								action : 'rating',
+                                extra: extraParam
 							},
 							function(data) {
 								if(!data.error)
